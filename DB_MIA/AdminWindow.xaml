@@ -1,0 +1,255 @@
+﻿<Window x:Class="DB_MIA.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DB_MIA"
+        mc:Ignorable="d"
+        KeyDown="AdmWindow_KeyDown" Title="AdminWindow" Height="650" Width="1300" WindowStartupLocation="Manual" Name="AdmWindow" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None" Loaded="AdmWindow_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Кандидаты"></Label>
+        <Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" FontSize="20" FontWeight="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Сотрудники"></Label>
+        <Button Name="ExitBtn" Grid.Row="0" Grid.Column="4" FontSize="16" Content="Закрыть" Click="ExitBtn_Click" HorizontalAlignment="Left" Width="162" ToolTip="Закрывает приложение.">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation To="Blue" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="Stop" 
+                                    Duration="0:0:1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+            <Button.Background>
+                <ImageBrush ImageSource="ss.jpg"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Name="ExitFromAccBtn" Grid.Row="1" Grid.Column="4" FontSize="16" Content="Выход" HorizontalAlignment="Left" Width="162" ToolTip="Кнопка, которая просто есть.">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation To="Blue" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="Stop" 
+                                    Duration="0:0:1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <TabControl Name="TypesTbCntrl" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <TabItem Header="Заявки">
+                <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="0.3*"></RowDefinition>
+                        <RowDefinition Height="0.3*"></RowDefinition>
+                        <RowDefinition Height="0.3*"></RowDefinition>
+                        <RowDefinition Height="0.3*"></RowDefinition>
+                        <RowDefinition Height="0.3*"></RowDefinition>
+                        <RowDefinition Height="0.3*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="ApplicationDG" FontSize="16" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" CanUserAddRows="False" SelectionChanged="ApplicationDG_SelectionChanged"/>
+                    <Label Content="Логин" FontSize="16" Grid.Row="1" Grid.Column="0" Margin="0,0,0,25"></Label>
+                    <Label Content="Фамилия" Background="LightBlue" FontSize="16" Grid.Row="1" Grid.Column="0" Margin="0,35,0,47" Grid.RowSpan="2"></Label>
+                    <Label Content="Имя" Background="IndianRed" FontSize="16" Grid.Row="2" Grid.Column="0" Margin="0,13,0,10"/>
+                    <Label Content="Отчество" FontSize="16" Grid.Row="2" Grid.Column="0" Margin="0,50,0,32" Grid.RowSpan="2"></Label>
+                    <Label Content="Данные паспорта" Background="LightBlue" FontSize="16" Grid.Row="3" Grid.Column="0" Margin="0,29,0,0"/>
+                    <TextBox ToolTip="Логин" Name="Login_C" FontSize="16" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Margin="0,0,0,25"></TextBox>
+
+
+
+
+                    <Button Name="ApplicationAdd" Background="IndianRed" Grid.Row="6" Grid.Column="0" FontSize="14" Content="Добавить данные" Margin="0,24,0,0" Click="ApplicationAdd_Click" ToolTip="Добавляет нового кандидата.">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Blue" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="Stop" 
+                                    Duration="0:0:1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Name="ApplicationEdit" Background="LightBlue" Grid.Row="6" Grid.Column="1" FontSize="14" Content="Изменить данные" Margin="0,24,0,0" Click="ApplicationEdit_Click" ToolTip="Изменяет выбранного кандидата.">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Blue" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="Stop" 
+                                    Duration="0:0:1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Name="ApplicationDelete" Grid.Row="6" Grid.Column="2" FontSize="14" Content="Удалить запись" Margin="0,24,0,0" Click="ApplicationDelete_Click" ToolTip="Удаляет выбранного кандидата.">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Blue" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="Stop" 
+                                    Duration="0:0:1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Label Content="СНИЛС" Background="IndianRed" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4" Width="144" Height="32"/>
+                    <TextBox ToolTip="Фамилия" Name="Surname_C" FontSize="16" Height="38" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Margin="0,35,0,48" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    <TextBox  ToolTip="Имя" Name="Name_C" FontSize="16" Height="38" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Margin="0,13,0,10" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <TextBox ToolTip="Отчество" Name="LastName_C" FontSize="16" Height="38" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Margin="0,51,0,33" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <TextBox ToolTip="Паспорт" Name="Passport_C" FontSize="16" Height="32" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Margin="0,29,0,0" Grid.Row="3" Grid.ColumnSpan="2"/>
+                    <TextBox ToolTip="СНИЛС" Name="SNILS_C" FontSize="16" Height="32" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,60,0,29" Grid.RowSpan="2"/>
+                    <Label Content="ИНН" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,32,0,0" Grid.Row="4" Width="144" Height="29"/>
+                    <Label Content="Полис" Background="LightBlue" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="5" Width="144" Height="27"/>
+                    <Label Content="Диплом ВПО" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="5" Height="29" Width="144" Margin="0,55,0,0" Grid.RowSpan="2"/>
+                    <Label Content="Военный билет" Background="IndianRed" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,27,0,0" Grid.Row="5" Width="144" Height="28"/>
+                    <TextBox ToolTip="ИНН" Name="INN_C" FontSize="16" Height="30" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Margin="0,31,0,59" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    <TextBox ToolTip="Полис" Name="Polis_C" FontSize="16" HorizontalAlignment="Left" Height="27" TextWrapping="Wrap" VerticalAlignment="Center" Width="288" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Margin="0,0,0,33"/>
+                    <TextBox ToolTip="Военный билет" Name="Bilet_C" FontSize="16" Height="28" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Margin="0,27,0,5" Grid.Row="5" Grid.ColumnSpan="2"/>
+                    <TextBox ToolTip="Диплом ВПО" Name="Diplom_C" FontSize="16" Height="29" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Margin="0,55,0,36" Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+
+
+
+
+
+        </TabControl>
+        <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <DataGrid Name="EmployeeDG" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" CanUserAddRows="False" Margin="0,0,0,5" SelectionChanged="EmployeeDG_SelectionChanged"/>
+            <Label Grid.Column="0" FontSize="14" Content="Кандидат:" VerticalContentAlignment="Center" Margin="0,0,0,25" Grid.RowSpan="2" Grid.Row="1"/>
+            <Label Grid.Row="2" Background="LightBlue"  Grid.Column="0" FontSize="14" Content="Логин:" VerticalContentAlignment="Center" Margin="0,24,0,33" Grid.RowSpan="2"></Label>
+            <Label Grid.Row="3" Background="IndianRed" Grid.Column="0" FontSize="14" Content="Пароль:" VerticalContentAlignment="Center" Margin="0,12,0,41" Grid.RowSpan="2"/>
+            <Label Grid.Row="4" Grid.Column="0" FontSize="14" Content="Должность:" VerticalContentAlignment="Center" Margin="0,0,0,10"></Label>
+            <Label Grid.Row="6" Grid.Column="0" FontSize="14" Content="Отдел:" VerticalContentAlignment="Center" Margin="0,0,0,10"/>
+            <ComboBox ToolTip="Кандидат" Name="Candidate_E" Grid.Column="1" FontSize="14" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Grid.RowSpan="2" Height="63" VerticalAlignment="Top" Grid.Row="1"/>
+            <TextBox ToolTip="Логин" Name="Login_E" Grid.Row="2" Grid.Column="1" FontSize="14" Text="" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Margin="0,24,0,33" Grid.RowSpan="2"></TextBox>
+            <TextBox ToolTip="Пароль" Name="Password_E" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" FontSize="14" VerticalContentAlignment="Center" Margin="0,12,0,41" Grid.RowSpan="2"></TextBox>
+            <ComboBox ToolTip="Должность" Name="Position_E" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="14" VerticalContentAlignment="Center" IsEditable="False" Margin="0,0,0,10"></ComboBox>
+            <ComboBox ToolTip="Отдел" Name="Departament_E" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" FontSize="14" VerticalContentAlignment="Center" IsEditable="False" Margin="0,0,0,10"/>
+            <Button Name="EmployeeAdd" Grid.Row="10" Grid.Column="0" FontSize="14" Content="Добавить данные" Margin="0,15,0,0" Click="EmployeeAdd_Click" ToolTip="Добавляет сотрудника.">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation To="Blue" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="Stop" 
+                                    Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+                <Button.Background>
+                    <ImageBrush ImageSource="ss.jpg"></ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button Name="EmployeeUpdate" Background="LightBlue" Grid.Row="10" Grid.Column="1" FontSize="14" Content="Изменить данные" Margin="0,15,0,0" Click="EmployeeUpdate_Click" ToolTip="Изменяет данные о сотруднике.">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation To="Blue" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="Stop" 
+                                    Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <Button Name="EmployeeDelete" Grid.Row="10" Grid.Column="2" FontSize="14" Content="Удалить данные" Margin="0,15,0,0" Click="EmployeeDelete_Click" ToolTip="Удаляет сотрудника.">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation To="Blue" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="Stop" 
+                                    Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <Label FontSize="14" Background="LightBlue"  Content="Звание" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,34,0,25" Grid.Row="4" Grid.RowSpan="2" Width="145" Height="29"/>
+            <ComboBox ToolTip="Звание" Name="Rank_E" VerticalAlignment="Top" Grid.Column="1" Margin="0,34,0,0" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="2" Height="29"/>
+            <Label FontSize="14" Background="IndianRed" Content="Номер личного дела" HorizontalAlignment="Left" Margin="0,19,0,0" Grid.Row="7" VerticalAlignment="Top" Height="25" Width="145"/>
+            <TextBox ToolTip="Номер личного дела" Name="PDNumber_E" Grid.Column="1" Height="26" Margin="0,19,0,44" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <Label Content="Номер оружия" Background="LightBlue" FontSize="14" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="56" Grid.RowSpan="2" Width="146"/>
+            <TextBox ToolTip="Номер оружия" Name="SWNumber_E" Grid.Column="1" Height="56" Margin="0,0,0,34" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Label Content="Вид оружия" Background="IndianRed" FontSize="13" HorizontalAlignment="Left" Margin="1,11,0,0" Grid.Row="9" VerticalAlignment="Top" Height="24" Width="145"/>
+            <TextBox Name="SWSort_E" ToolTip="Вид оружия" Grid.ColumnSpan="2" Grid.Column="1" Height="24" Margin="0,10,-5,11" Grid.Row="9" TextWrapping="Wrap" VerticalAlignment="Center"/>
+            <Label Content="График" FontSize="13" HorizontalAlignment="Left" Margin="1,35,0,0" Grid.Row="9" VerticalAlignment="Top" Height="25" Grid.RowSpan="2" Width="145"/>
+            <TextBox Name="Schedule_E" ToolTip="График" Grid.ColumnSpan="2" Grid.Column="1" Height="26" Margin="0,35,0,29" Grid.Row="9" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="2"/>
+        </Grid>
+        <Label Content="PC Configuration" Grid.Column="5" Grid.Row="0" FontSize="16"/>
+        <Grid Grid.Column="5" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Name="Proclbl" Content="Процессор: " FontSize="14" Grid.Row="0"/>
+            <ProgressBar Name="Proc" Minimum="0" Maximum="100" Orientation="Vertical" Grid.Row="1"/>
+            <Label Name="TempMem" Content="ОЗУ: " FontSize="14" Grid.Row="2"/>
+            <ProgressBar Name="Mem" Minimum="0" Maximum="100" Orientation="Vertical" Grid.Row="3"/>
+            <Label Name="Hard" Content="Диск: " FontSize="14" Grid.Row="4"/>
+            <ProgressBar Name="HardProc" Minimum="0" Maximum="100" Orientation="Vertical" Grid.Row="5"/>
+            <Label Name="Net" Content="Сеть: " FontSize="14" Grid.Row="6"/>
+            <ProgressBar Name="NetProc" Minimum="0" Maximum="100" Orientation="Vertical" Grid.Row="7"/>
+        </Grid>
+    </Grid>
+</Window>

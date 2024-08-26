@@ -1,0 +1,12 @@
+﻿<Window x:Class="DB_MIA.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DB_MIA"
+        mc:Ignorable="d"
+        Title="Справка" Height="250" Width="400" ResizeMode="NoResize">
+    <Grid>
+        <TextBlock TextWrapping="Wrap"  Text="   Данное приложение помогает Вам набирать новых сотрудников из списка кандидатов. Приложением имеет доступ к списку сотрудников, так и к списку кандидатов, манипулировать их данными."/>
+    </Grid>
+</Window>

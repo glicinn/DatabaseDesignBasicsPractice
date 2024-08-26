@@ -1,0 +1,32 @@
+﻿<Window x:Class="DB_MIA.DataBaseChoose"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DB_MIA"
+        mc:Ignorable="d"
+        Title="DataBaseChoose" Height="700" Width="1200" Loaded="Window_Loaded" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Red" Background="Red" BorderThickness="1" HorizontalAlignment="Left" Height="233" VerticalAlignment="Top" Width="1200" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Border BorderBrush="LightBlue" Background="LightBlue" BorderThickness="1" HorizontalAlignment="Left" Height="233" VerticalAlignment="Top" Width="1200" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+        <Label Name="TEXT" Grid.Row="1" Grid.Column="0" Content="Выбор сервера базы данных:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" Margin="0,38,0,109" FontWeight="Black"></Label>
+        <Label Grid.Column="1" Content="Выбор базы данных:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" FontWeight="Black" Margin="0,38,0,109" Grid.Row="1"/>
+        <Button Name="ConnectionBtn" Grid.Column="0" Grid.Row="2" Content="Подключить" FontSize="36" FontWeight="Black" Click="ConnectionBtn_Click" Margin="162,73,163,78"></Button>
+        <Button Name="CloseBtn" Grid.Column="1" Grid.Row="2" Content="Закрыть" FontSize="36" FontWeight="Black" Click="CloseBtn_Click" Margin="162,73,164,78"></Button>
+        <ComboBox Name="ServerList" Grid.Row="1" IsEnabled="False" IsEditable="True" SelectionChanged="ServerList_SelectionChanged" Margin="55,129,85,55"/>
+        <ComboBox Name="DatabaseList" Grid.Row="1" Grid.Column="1" IsEditable="True" Margin="85,129,57,55"></ComboBox>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="72" Margin="367,82,363,0" TextWrapping="Wrap" Text="Добро пожаловать!" FontSize="45" FontWeight="Black" VerticalAlignment="Top" Width="470"/>
+
+
+    </Grid>
+</Window>
